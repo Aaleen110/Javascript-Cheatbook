@@ -125,3 +125,46 @@ Represents a variable that has been declared but not assigned a value.
 ```js
 let data;
 console.log(data); // undefined
+
+
+### 🔁 Arrow Functions in JavaScript
+
+- Introduced in **ES6**
+- Provide a **shorter syntax** for writing functions
+- Handle the `this` keyword **lexically**, so there's **no need to bind `this`**
+- `this` refers to the context in which the function was defined (not called)
+- ✅ Use cases:
+  - Implicit returns
+  - Avoiding `this` binding issues
+
+---
+
+#### ❌ Using Regular Function (Incorrect `this` context)
+```js
+function Counter() {
+  this.count = 0;
+
+  setInterval(function () {
+    this.count++; // 'this' refers to the global object (e.g., window)
+    console.log(this.count);
+  }, 1000);
+}
+
+const counter = new Counter();
+```
+
+#### ✅ Using Arrow Function (Correct `this` context)
+```js
+function Counter() {
+  this.count = 0;
+
+  setInterval(() => {
+    this.count++; // 'this' correctly refers to the Counter instance
+    console.log(this.count);
+  }, 1000);
+}
+
+const counter = new Counter();
+```
+
+
