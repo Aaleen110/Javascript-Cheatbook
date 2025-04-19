@@ -125,7 +125,7 @@ Represents a variable that has been declared but not assigned a value.
 ```js
 let data;
 console.log(data); // undefined
-
+```
 
 ### 🔁 Arrow Functions in JavaScript
 
